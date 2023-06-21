@@ -1,0 +1,31 @@
+﻿@*Hien thong tin o trang Detail2*@
+@model baitap410.Models.StudenInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>THÔNG TIN SINH VIÊN</h2>
+@{ Html.BeginForm("Detail2", "SinhVien61130137");}
+<div>
+    Mã sinh viên:
+</div>
+<div>
+    @Html.EditorFor(model => model.Id)
+</div>
+<div>
+    Họ và tên:
+</div>
+<div>
+    @Html.EditorFor(model => model.Name)
+</div>
+<div>
+    Điểm:
+</div>
+<div>
+    @Html.EditorFor(model => model.Marks)
+</div>
+<div>
+    <input type="submit" value="Đăng Ký" />
+</div>
+@{ Html.EndForm();}

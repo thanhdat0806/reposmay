@@ -1,0 +1,38 @@
+﻿@model baitap410.Models.StudenInfo
+@{
+    ViewBag.Title = "Detail1";
+    Layout = null;
+}
+
+<h2>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÝ</h2>
+@{ Html.BeginForm(); }
+<div>Mã sinh viên</div>
+<div>
+    @Html.EditorFor(model => model.Id)
+</div>
+<div>Họ và tên</div>
+<div>
+    @Html.EditorFor(model => model.Name)
+</div>
+<div>Điểm</div>
+<div>
+    @Html.EditorFor(model => model.Marks)
+</div>
+<div>
+    <input type="submit" value="Đăng ký" />
+</div>
+@{ Html.EndForm();}
+@{ Html.BeginForm(); }
+<h2>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÝ</h2>
+<div>
+    Mã sinh viên: @ViewBag.Id
+</div>
+<div>
+    Họ và tên: @ViewBag.Name
+</div>
+<div>
+    Điểm: @ViewBag.Marks
+</div>
+@{ Html.EndForm();}
+
+

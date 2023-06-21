@@ -1,0 +1,276 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #696989;
+        }
+
+            a:hover {
+                color: #adad90;
+            }
+
+        p {
+            font-size: 25px;
+            color: #484545;
+        }
+
+        .container {
+            width: 1200px;
+            margin: auto;
+            ;
+        }
+
+        .menu {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+            .menu ul li {
+                display: inline-block;
+                padding: 10px 20px;
+                text-transform: uppercase;
+            }
+
+            .menu img {
+                margin: 0px 15px -20px;
+            }
+
+                .menu img:hover {
+                    opacity: 0;
+                }
+
+        .slice {
+            margin-top: 30px;
+            position: relative;
+        }
+
+            .slice .left {
+                width: 400px;
+                position: absolute;
+                left: 75px;
+                top: 120px;
+            }
+
+            .slice .right {
+                width: 400px;
+                position: absolute;
+                right: 75px;
+                top: 120px;
+            }
+
+                .slice .right p {
+                    margin-top: 250px;
+                    color: #484545
+                }
+
+            .slice .left h2 {
+                margin-top: 250px;
+                font-size: 80px;
+                color: #484545;
+            }
+
+            .slice img {
+                width: 1200px;
+                height: auto;
+            }
+
+        .banner {
+            margin-top: 20px;
+        }
+
+
+
+
+        #title {
+            margin-bottom: 20px;
+            font-size: 50px;
+        }
+
+        .sp, .ten {
+            width: 285px;
+            margin-left: 20px;
+            float: left;
+            overflow: hidden;
+        }
+
+            .sp:first-child, .ten:first-child, .gia:first-child {
+                margin-left: 0;
+            }
+
+            .sp img {
+                transform: scale(1.5);
+            }
+
+                .sp img:hover {
+                    transform: scale(2.0);
+                }
+
+            .ten p {
+                text-align: center;
+                margin-bottom: 10px;
+                color: red;
+            }
+
+        .gia {
+            width: 290px;
+            margin-left: 20px;
+            float: left;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+            .gia span {
+                font-size: 15px;
+            }
+
+        .about {
+            margin-top: 50px;
+            width: 400px;
+            float: left;
+        }
+
+            .about #trai {
+                width: 300px;
+                height: 40px;
+                margin-top: 15px;
+                margin-right: 20px;
+                float: left;
+            }
+
+
+        .contact {
+            margin-top: 50px;
+            width: 300px;
+            float: left;
+        }
+
+            .contact p {
+                margin-top: 10px;
+            }
+
+            .contact span {
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+        .link {
+            margin-top: 50px;
+            width: 500px;
+            float: left;
+        }
+
+    </style>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#">Trang Chủ</a>
+                    <a href="#"><img src="~/Images/anh1.png" /></a>
+                    <a href="#">Phòng</a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="slice">
+            <img src="~/Images/anh3.jpg" alt="#">
+            
+            <div class="left">
+
+                <h2><i>H2O</i></h2>
+                <p>
+                    <i>
+                        Khách Sạn H20 Đạt Chuẩn 5 Sao tọa lạc trên cung đường sát biển với view cực đẹp.<br>
+                        Nằm gần với các khu hành chính của tỉnh và gần các trung tâm mua sắm và bãi biển ở nha trang
+                    </i>
+                </p>
+
+            </div>
+            <div class="right">
+                <p><i>Khách sạn rất nhiều phòng nghỉ, được thiết kế hiện đại, đạt tiêu chuẩn quốc tế 5 sao, với đa dạng nhiều loại phòng như: phòng đơn, phòng gia đình, phòng có view đẹp, nội thất được bày trí khoa học và tinh tế, lắp đặt những trang thiết bị hiện đại đạt tiêu chuẩn quốc tế, sẵn sàng phục vụ quý khách.Khách sạn phục vụ các món ăn Âu – Á và đặc sản địa phương sẽ làm quý khách hài lòng.</i></p>
+            </div>
+        </div>
+
+
+
+        <div class="content">
+            <a id="title"> Phòng</a>
+            <div class="layer1">
+                <a class="sp" href="#">
+                    <img src="~/Images/anh7.jpg" alt="#" style="width: 285px;height: 500px;">
+                   
+                </a>
+                <a class="sp" href="#">
+                    <img src="~/Images/anh8.jpg" alt="#" style="width: 285px;height: 500px;">
+                </a>
+                <a class="sp" href="#">
+                    <img src="~/Images/anh10.jpg" alt="#" style="width: 285px;height: 500px;">
+                </a>
+                <a class="sp" href="#">
+                    <img src="~/Images/anh11.jpg" style="width: 285px;height: 500px;">
+                </a>
+                <div class="layer2">
+                    <div class="ten">
+                        <p>Phòng Nội Thất Sang Trọng</p>
+                    </div>
+                    <div class="ten">
+                        <p>Phòng Phòng Đôi View Đẹp</p>
+                    </div>
+                    <div class="ten">
+                        <p>Phòng Phòng Đôi View Biển</p>
+                    </div>
+                    <div class="ten">
+                        <p>Phòng Phòng Đôi View Đẹp</p>
+                    </div>
+
+                </div>
+                <div class="layer3">
+                    <p class="gia">150.<span>000</span> VNĐ</p>
+                    <p class="gia">250.<span>000</span> VNĐ</p>
+                    <p class="gia">350.<span>000</span> VNĐ</p>
+                    <p class="gia" style="width: 200px;margin-left: 20px;float: left;">450.<span>000</span> VNĐ</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer" style="background-color:aqua;">
+            <div class="about">
+                <h2>About Us</h2>
+                <a id="trai" href="#"><img src="~/Images/anh1.png" style="width= 250px" alt=""></a>
+
+            </div>
+            <div class="contact">
+                <h2>Contact US</h2>
+                <p><span>Gmail:</span><i>H20team@gmail.com</i></p>
+                <p><span>SĐT:</span><i>0968388519</i></p>
+                <p><span>Địa Chỉ:</span><i>Phú Yên</i></p>
+
+            </div>
+            <div class="link" >
+                <p style="margin-top:100px;float :right;"><small><i>Copyright &copy; H2O website</i></small></p>
+            </div>
+
+        </div>
+      </div>
+</body>
+</html>
+

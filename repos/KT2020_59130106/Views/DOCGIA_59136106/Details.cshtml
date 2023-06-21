@@ -1,0 +1,74 @@
+﻿@model KT2020_59130106.Models.DOCGIA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DOCGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoDG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoDG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAIDG.TenLDG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIDG.TenLDG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

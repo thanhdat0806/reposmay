@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Thi_LeDucBinh_59130126.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+  
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "Sach", rowsPerPage: 2);
+    @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
+}
+<html>
+<head>
+    <link href="~/Content/styleTimKiem.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+       tableStyle: "table table-bordered table-hover",
+       footerStyle: "grid-footer",
+       fillEmptyRows: true,
+       mode: WebGridPagerModes.Numeric,
+       alternatingRowStyle: "alternatingRowStyle",
+       columns: new[]  // colums in grid
+       {
+           grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+           grid.Column("MaSach", "Mã Sách"),
+           grid.Column("TenSach", "Tên Sách"),
+           grid.Column("NgonNgu","Ngôn ngữ",format: (@item) => @item.NgonNgu==true?"Tiếng Việt":"Ngoại Ngữ"),
+           grid.Column("MoTa", "Mô Tả"),
+           grid.Column("DonGia", "Đơn Giá"),
+grid.Column("AnhDaiDien","Ảnh đại diện"),
+grid.Column("LOAISACH.TenLS","Loại Sách"),
+
+grid.Column(format: (item) => Html.ActionLink("Xóa", "Delete", new { id = item.MaSach })),
+})
+    </div>
+</body>
+</html>

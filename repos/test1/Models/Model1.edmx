@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Thi_59131665Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOAITINTUC">
+          <Key>
+            <PropertyRef Name="MALTT" />
+          </Key>
+          <Property Name="MALTT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENLTT" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TINTUC">
+          <Key>
+            <PropertyRef Name="MATT" />
+          </Key>
+          <Property Name="MATT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TIEUDE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NGONNGU" Type="nvarchar" MaxLength="59" Nullable="false" />
+          <Property Name="NGUOIDANG" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NGAYDANG" Type="date" />
+          <Property Name="ANHDAIDIEN" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GHICHU" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MALTT" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TINTUC__MALTT__1273C1CD">
+          <End Role="LOAITINTUC" Type="Self.LOAITINTUC" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TINTUC" Type="Self.TINTUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITINTUC">
+              <PropertyRef Name="MALTT" />
+            </Principal>
+            <Dependent Role="TINTUC">
+              <PropertyRef Name="MALTT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Thi_59131665ModelStoreContainer">
+          <EntitySet Name="LOAITINTUC" EntityType="Self.LOAITINTUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINTUC" EntityType="Self.TINTUC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TINTUC__MALTT__1273C1CD" Association="Self.FK__TINTUC__MALTT__1273C1CD">
+            <End Role="LOAITINTUC" EntitySet="LOAITINTUC" />
+            <End Role="TINTUC" EntitySet="TINTUC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Thi_59131665Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOAITINTUC">
+          <Key>
+            <PropertyRef Name="MALTT" />
+          </Key>
+          <Property Name="MALTT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENLTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TINTUCs" Relationship="Self.FK__TINTUC__MALTT__1273C1CD" FromRole="LOAITINTUC" ToRole="TINTUC" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TINTUC">
+          <Key>
+            <PropertyRef Name="MATT" />
+          </Key>
+          <Property Name="MATT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TIEUDE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGONNGU" Type="String" MaxLength="59" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGUOIDANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAYDANG" Type="DateTime" Precision="0" />
+          <Property Name="ANHDAIDIEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GHICHU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MALTT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LOAITINTUC" Relationship="Self.FK__TINTUC__MALTT__1273C1CD" FromRole="TINTUC" ToRole="LOAITINTUC" />
+        </EntityType>
+        <Association Name="FK__TINTUC__MALTT__1273C1CD">
+          <End Role="LOAITINTUC" Type="Self.LOAITINTUC" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TINTUC" Type="Self.TINTUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAITINTUC">
+              <PropertyRef Name="MALTT" />
+            </Principal>
+            <Dependent Role="TINTUC">
+              <PropertyRef Name="MALTT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Thi_59131665Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOAITINTUCs" EntityType="Self.LOAITINTUC" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TINTUCs" EntityType="Self.TINTUC" />
+          <AssociationSet Name="FK__TINTUC__MALTT__1273C1CD" Association="Self.FK__TINTUC__MALTT__1273C1CD">
+            <End Role="LOAITINTUC" EntitySet="LOAITINTUCs" />
+            <End Role="TINTUC" EntitySet="TINTUCs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Thi_59131665ModelStoreContainer" CdmEntityContainer="Thi_59131665Entities">
+          <EntitySetMapping Name="LOAITINTUCs">
+            <EntityTypeMapping TypeName="Thi_59131665Model.LOAITINTUC">
+              <MappingFragment StoreEntitySet="LOAITINTUC">
+                <ScalarProperty Name="MALTT" ColumnName="MALTT" />
+                <ScalarProperty Name="TENLTT" ColumnName="TENLTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Thi_59131665Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINTUCs">
+            <EntityTypeMapping TypeName="Thi_59131665Model.TINTUC">
+              <MappingFragment StoreEntitySet="TINTUC">
+                <ScalarProperty Name="MATT" ColumnName="MATT" />
+                <ScalarProperty Name="TIEUDE" ColumnName="TIEUDE" />
+                <ScalarProperty Name="NGONNGU" ColumnName="NGONNGU" />
+                <ScalarProperty Name="NGUOIDANG" ColumnName="NGUOIDANG" />
+                <ScalarProperty Name="NGAYDANG" ColumnName="NGAYDANG" />
+                <ScalarProperty Name="ANHDAIDIEN" ColumnName="ANHDAIDIEN" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="MALTT" ColumnName="MALTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

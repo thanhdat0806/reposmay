@@ -1,0 +1,18 @@
+﻿@model Baitap2_61130137.Models.StudentInfo
+@{
+    ViewBag.Title = "Detail2";
+    Layout = null;
+}
+
+<h2>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÝ</h2>
+@{ Html.BeginForm();}
+<div>
+    Mã sinh viên : @ViewBag.Id
+</div>
+<div>
+    Họ và tên: @ViewBag.Name
+</div>
+<div>
+    Điểm: @ViewBag.Marks
+</div>
+@{ Html.EndForm();}

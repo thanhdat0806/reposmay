@@ -1,0 +1,81 @@
+﻿@model KT0720Dat_61130137.Models.SinhVien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa thông tin sinh viên</h2>
+
+<h3>Bạn chắc chắn muốn xóa sinh viên này?</h3>
+<div>
+    <h4>SinhVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lop.TenLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lop.TenLop)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KT2020_59136106Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DOCGIA">
+          <Key>
+            <PropertyRef Name="MaDG" />
+          </Key>
+          <Property Name="MaDG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HoDG" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenDG" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Anh" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLDG" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOAIDG">
+          <Key>
+            <PropertyRef Name="MaLDG" />
+          </Key>
+          <Property Name="MaLDG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLDG" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DOCGIA__MaLDG__1367E606">
+          <End Role="LOAIDG" Type="Self.LOAIDG" Multiplicity="1" />
+          <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIDG">
+              <PropertyRef Name="MaLDG" />
+            </Principal>
+            <Dependent Role="DOCGIA">
+              <PropertyRef Name="MaLDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KT2020_59136106ModelStoreContainer">
+          <EntitySet Name="DOCGIA" EntityType="Self.DOCGIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIDG" EntityType="Self.LOAIDG" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DOCGIA__MaLDG__1367E606" Association="Self.FK__DOCGIA__MaLDG__1367E606">
+            <End Role="LOAIDG" EntitySet="LOAIDG" />
+            <End Role="DOCGIA" EntitySet="DOCGIA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KT2020_59136106Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DOCGIA">
+          <Key>
+            <PropertyRef Name="MaDG" />
+          </Key>
+          <Property Name="MaDG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoDG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Anh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLDG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LOAIDG" Relationship="Self.FK__DOCGIA__MaLDG__1367E606" FromRole="DOCGIA" ToRole="LOAIDG" />
+        </EntityType>
+        <EntityType Name="LOAIDG">
+          <Key>
+            <PropertyRef Name="MaLDG" />
+          </Key>
+          <Property Name="MaLDG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenLDG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DOCGIAs" Relationship="Self.FK__DOCGIA__MaLDG__1367E606" FromRole="LOAIDG" ToRole="DOCGIA" />
+        </EntityType>
+        <Association Name="FK__DOCGIA__MaLDG__1367E606">
+          <End Role="LOAIDG" Type="Self.LOAIDG" Multiplicity="1" />
+          <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIDG">
+              <PropertyRef Name="MaLDG" />
+            </Principal>
+            <Dependent Role="DOCGIA">
+              <PropertyRef Name="MaLDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KT2020_59136106Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DOCGIAs" EntityType="Self.DOCGIA" />
+          <EntitySet Name="LOAIDGs" EntityType="Self.LOAIDG" />
+          <AssociationSet Name="FK__DOCGIA__MaLDG__1367E606" Association="Self.FK__DOCGIA__MaLDG__1367E606">
+            <End Role="LOAIDG" EntitySet="LOAIDGs" />
+            <End Role="DOCGIA" EntitySet="DOCGIAs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KT2020_59136106ModelStoreContainer" CdmEntityContainer="KT2020_59136106Entities1">
+          <EntitySetMapping Name="DOCGIAs">
+            <EntityTypeMapping TypeName="KT2020_59136106Model.DOCGIA">
+              <MappingFragment StoreEntitySet="DOCGIA">
+                <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+                <ScalarProperty Name="HoDG" ColumnName="HoDG" />
+                <ScalarProperty Name="TenDG" ColumnName="TenDG" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="MaLDG" ColumnName="MaLDG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIDGs">
+            <EntityTypeMapping TypeName="KT2020_59136106Model.LOAIDG">
+              <MappingFragment StoreEntitySet="LOAIDG">
+                <ScalarProperty Name="MaLDG" ColumnName="MaLDG" />
+                <ScalarProperty Name="TenLDG" ColumnName="TenLDG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

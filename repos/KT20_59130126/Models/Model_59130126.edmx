@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KT20_59130126Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOAIQUANAO">
+          <Key>
+            <PropertyRef Name="MaLQA" />
+          </Key>
+          <Property Name="MaLQA" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLQA" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUANAO">
+          <Key>
+            <PropertyRef Name="MaQA" />
+          </Key>
+          <Property Name="MaQA" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenQA" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DonGia" Type="int" Nullable="false" />
+          <Property Name="XuatXu" Type="bit" />
+          <Property Name="Anh" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLQA" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__QUANAO__MaLQA__182C9B23">
+          <End Role="LOAIQUANAO" Type="Self.LOAIQUANAO" Multiplicity="1" />
+          <End Role="QUANAO" Type="Self.QUANAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIQUANAO">
+              <PropertyRef Name="MaLQA" />
+            </Principal>
+            <Dependent Role="QUANAO">
+              <PropertyRef Name="MaLQA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KT20_59130126ModelStoreContainer">
+          <EntitySet Name="LOAIQUANAO" EntityType="Self.LOAIQUANAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUANAO" EntityType="Self.QUANAO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__QUANAO__MaLQA__182C9B23" Association="Self.FK__QUANAO__MaLQA__182C9B23">
+            <End Role="LOAIQUANAO" EntitySet="LOAIQUANAO" />
+            <End Role="QUANAO" EntitySet="QUANAO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KT20_59130126Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOAIQUANAO">
+          <Key>
+            <PropertyRef Name="MaLQA" />
+          </Key>
+          <Property Name="MaLQA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenLQA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="QUANAOs" Relationship="Self.FK__QUANAO__MaLQA__182C9B23" FromRole="LOAIQUANAO" ToRole="QUANAO" />
+        </EntityType>
+        <EntityType Name="QUANAO">
+          <Key>
+            <PropertyRef Name="MaQA" />
+          </Key>
+          <Property Name="MaQA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenQA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonGia" Type="Int32" Nullable="false" />
+          <Property Name="XuatXu" Type="Boolean" />
+          <Property Name="Anh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLQA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LOAIQUANAO" Relationship="Self.FK__QUANAO__MaLQA__182C9B23" FromRole="QUANAO" ToRole="LOAIQUANAO" />
+        </EntityType>
+        <Association Name="FK__QUANAO__MaLQA__182C9B23">
+          <End Role="LOAIQUANAO" Type="Self.LOAIQUANAO" Multiplicity="1" />
+          <End Role="QUANAO" Type="Self.QUANAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIQUANAO">
+              <PropertyRef Name="MaLQA" />
+            </Principal>
+            <Dependent Role="QUANAO">
+              <PropertyRef Name="MaLQA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KT20_59130126Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOAIQUANAOs" EntityType="Self.LOAIQUANAO" />
+          <EntitySet Name="QUANAOs" EntityType="Self.QUANAO" />
+          <AssociationSet Name="FK__QUANAO__MaLQA__182C9B23" Association="Self.FK__QUANAO__MaLQA__182C9B23">
+            <End Role="LOAIQUANAO" EntitySet="LOAIQUANAOs" />
+            <End Role="QUANAO" EntitySet="QUANAOs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KT20_59130126ModelStoreContainer" CdmEntityContainer="KT20_59130126Entities">
+          <EntitySetMapping Name="LOAIQUANAOs">
+            <EntityTypeMapping TypeName="KT20_59130126Model.LOAIQUANAO">
+              <MappingFragment StoreEntitySet="LOAIQUANAO">
+                <ScalarProperty Name="MaLQA" ColumnName="MaLQA" />
+                <ScalarProperty Name="TenLQA" ColumnName="TenLQA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUANAOs">
+            <EntityTypeMapping TypeName="KT20_59130126Model.QUANAO">
+              <MappingFragment StoreEntitySet="QUANAO">
+                <ScalarProperty Name="MaQA" ColumnName="MaQA" />
+                <ScalarProperty Name="TenQA" ColumnName="TenQA" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="XuatXu" ColumnName="XuatXu" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="MaLQA" ColumnName="MaLQA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

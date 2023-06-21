@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KT0720_59130126Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOAISP">
+          <Key>
+            <PropertyRef Name="MaLSP" />
+          </Key>
+          <Property Name="MaLSP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLSP" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenSP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DVT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DonGia" Type="int" Nullable="false" />
+          <Property Name="XuatXu" Type="bit" />
+          <Property Name="NhaCungCap" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaLSP" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__SANPHAM__MaLSP__1367E606">
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISP">
+              <PropertyRef Name="MaLSP" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MaLSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="TimKiemThanhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="varchar" Mode="In" />
+          <Parameter Name="MaLSP" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="KT0720_59130126ModelStoreContainer">
+          <EntitySet Name="LOAISP" EntityType="Self.LOAISP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__SANPHAM__MaLSP__1367E606" Association="Self.FK__SANPHAM__MaLSP__1367E606">
+            <End Role="LOAISP" EntitySet="LOAISP" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KT0720_59130126Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOAISP">
+          <Key>
+            <PropertyRef Name="MaLSP" />
+          </Key>
+          <Property Name="MaLSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenLSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__SANPHAM__MaLSP__1367E606" FromRole="LOAISP" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonGia" Type="Int32" Nullable="false" />
+          <Property Name="XuatXu" Type="Boolean" />
+          <Property Name="NhaCungCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LOAISP" Relationship="Self.FK__SANPHAM__MaLSP__1367E606" FromRole="SANPHAM" ToRole="LOAISP" />
+        </EntityType>
+        <Association Name="FK__SANPHAM__MaLSP__1367E606">
+          <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAISP">
+              <PropertyRef Name="MaLSP" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="MaLSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KT0720_59130126Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOAISP" EntityType="Self.LOAISP" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" />
+          <AssociationSet Name="FK__SANPHAM__MaLSP__1367E606" Association="Self.FK__SANPHAM__MaLSP__1367E606">
+            <End Role="LOAISP" EntitySet="LOAISP" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <FunctionImport Name="TimKiemThanhVien">
+            <Parameter Name="MaSP" Mode="In" Type="String" />
+            <Parameter Name="MaLSP" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KT0720_59130126ModelStoreContainer" CdmEntityContainer="KT0720_59130126Entities">
+          <EntitySetMapping Name="LOAISP">
+            <EntityTypeMapping TypeName="KT0720_59130126Model.LOAISP">
+              <MappingFragment StoreEntitySet="LOAISP">
+                <ScalarProperty Name="MaLSP" ColumnName="MaLSP" />
+                <ScalarProperty Name="TenLSP" ColumnName="TenLSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAM">
+            <EntityTypeMapping TypeName="KT0720_59130126Model.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="TenSP" ColumnName="TenSP" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="XuatXu" ColumnName="XuatXu" />
+                <ScalarProperty Name="NhaCungCap" ColumnName="NhaCungCap" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="MaLSP" ColumnName="MaLSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemThanhVien" FunctionName="KT0720_59130126Model.Store.TimKiemThanhVien" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

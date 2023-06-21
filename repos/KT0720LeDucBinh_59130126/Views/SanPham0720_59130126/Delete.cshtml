@@ -1,0 +1,101 @@
+﻿@model KT0720LeDucBinh_59130126.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string XuatXu = "";
+
+}
+
+
+<h3>Xac Nhan Thong Tin Can Xoa</h3>
+<div>
+    <h4>SANPHAM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XuatXu)
+        </dt>
+
+        <dd>
+            @{
+                if (Model.XuatXu == true)
+                {
+                    XuatXu = "trong nuoc";
+                }
+                else
+                {
+                    XuatXu = "nuoc ngoai";
+                }
+
+            }
+            @XuatXu
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhaCungCap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaCungCap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAISP.TenLSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAISP.TenLSP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        
+<div class="form-actions no-color">
+    Ban Co Chac Xoa thong Tin Nay
+    <input type="submit" value="Xoa" class="btn btn-default" /> |
+    @Html.ActionLink("Quay Lai", "Index")
+</div>
+    }
+</div>

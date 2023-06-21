@@ -1,0 +1,54 @@
+﻿@model baitap4_61130137.Models.MailInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Chức năng gửi mail</h2>
+@{ Html.BeginForm();}
+<table>
+    <tr>
+        <th><div>Gửi từ mail</div></th>
+        <th>
+            <div>
+                @Html.EditorFor(model => model.From)
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th><div>Mật khẩu</div></th>
+        <th>
+            <div>
+                @Html.PasswordFor(model => model.Password)
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th><div>Gửi đến mail</div></th>
+        <th>
+            <div>
+                @Html.EditorFor(model => model.To)
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th><div>Tiêu đề</div></th>
+        <th>
+            <div>
+                @Html.EditorFor(model => model.Subject)
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th><div>Nội dung</div></th>
+        <th>
+            <div>
+                @Html.TextAreaFor(model => model.Body)
+            </div>
+        </th>
+    </tr>
+</table>
+    <div style="margin-left:150px">
+        <input type="submit" value="Gửi mail"/>
+    </div>
+@{ Html.EndForm();}

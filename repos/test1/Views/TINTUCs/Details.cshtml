@@ -1,0 +1,75 @@
+﻿@model test1.Models.TINTUC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TINTUC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TIEUDE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIEUDE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGONNGU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGONNGU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGUOIDANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOIDANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANHDAIDIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANHDAIDIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAITINTUC.TENLTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAITINTUC.TENLTT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MATT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

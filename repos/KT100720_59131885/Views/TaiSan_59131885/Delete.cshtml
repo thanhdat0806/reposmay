@@ -1,0 +1,80 @@
+﻿@model KT100720_59131885.Models.TaiSan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TaiSan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XuatXu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XuatXu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhMH)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiTaiSan.TenLTS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiTaiSan.TenLTS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |        
+        </div>
+    }
+</div>

@@ -1,0 +1,43 @@
+﻿@model baitap3_61130137.Models.EmpModel
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>THÔNG TIN THÀNH VIÊN ĐĂNG KÝ</h2>
+@{ Html.BeginForm("Index", "nhanvien_61130137",FormMethod.Post, new { enctype = "multipart/form-data" });}
+<div>Mã nhân viên</div>
+<div>
+    @Html.EditorFor(model => model.EmpID)
+</div>
+<div>Họ và tên</div>
+<div>
+    @Html.EditorFor(model => model.Name)
+</div>
+<div>Ngày Sinh</div>
+<div>
+    @Html.EditorFor(model => model.BirthOfDate)
+</div>
+<div>Email</div>
+<div>
+    @Html.EditorFor(model => model.Email)
+</div>
+<div>Mật khẩu</div>
+<div>
+    @Html.PasswordFor(model => model.Password)
+</div>
+<div>Đơn vị</div>
+<div>
+    @Html.EditorFor(model => model.Department)
+</div>
+<div>
+    Ảnh đại diện
+    <br />
+    <input type="file" name="Avatar" value="chọn tệp" accept="image" required/>
+</div>
+<div>
+    <input type="submit" value="Đăng ký" />
+</div>
+@{ Html.EndForm();}
+
+

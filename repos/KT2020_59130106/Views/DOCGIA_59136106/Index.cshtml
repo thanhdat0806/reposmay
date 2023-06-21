@@ -1,0 +1,76 @@
+﻿@model IEnumerable<KT2020_59136106.Models.DOCGIA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenDG", rowsPerPage: 2);
+    @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
+}
+
+<h2>Index</h2>
+
+<html>
+<head>
+    <style type="text/css">
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    background-color: #ffffff;
+                    color: #FFAD33;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        .tr, .td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+         tableStyle: "table table-bordered table-hover",
+         footerStyle: "grid-footer",
+         fillEmptyRows: true,
+         mode: WebGridPagerModes.Numeric,
+         alternatingRowStyle: "alternatingRowStyle",
+           columns: new[]  // colums in grid
+          {
+
+        grid.Column("MaDG","Mã Độc giả"), //the model fields to display
+        grid.Column("HoDG","Họ độc giả"  ),
+        grid.Column("TenDG","Tên độc giả"  ),
+        grid.Column("NgaySinh","Ngày Sinh"),
+        grid.Column("GioiTinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ"),
+        grid.Column("Email","Email"),
+grid.Column("Anh","Ảnh Minh Họa"),
+grid.Column("LOAIDG.TenLDG","Loại Độc giả"),
+grid.Column(format: (item) => Html.ActionLink("Xóa", "Delete","DOCGIA_59136106", new { id = item.MaDG },"DOCGIA_59136106Controller"))
+           })
+    </div>
+</body>
+</html>
